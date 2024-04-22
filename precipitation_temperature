@@ -1,0 +1,77 @@
+降雨和温度
+clear
+
+date =[1	2	3	4	5	6	7	8	9	10	11	12];
+temperature =[15.8	16.1	20	20	27.1	28.2	30.3	28.4	27	23.4	21.2	14.6];
+precipitation =[22.4	124.9	151.6	125.7	545.5	262.7	67.5	226.5	345	12.2	4.4	1.9];
+tp = [temperature;precipitation];
+tave = mean(temperature);
+pave = mean(precipitation);
+
+
+
+
+绘图降雨和温度
+
+b = bar (date,tp(2,:),0.2); %1
+ylim([0 1000]);
+ax = gca;
+ax.YAxis.Direction = "reverse";
+ylabel("precipitation(mm)")
+yline(pave,"-",["Average precipitation" "(157.5mm）"],LabelHorizontalAlignment="left",LabelVerticalAlignment="bottom"); %2
+
+% sum(precipitation)
+% xtips1 = b(1).XEndPoints;
+% ytips1 = b(1).YEndPoints;
+% labels1 = string(b(1).YData);
+% text(xtips1,ytips1,labels1,'HorizontalAlignment','center',...
+%    'VerticalAlignment','top')
+
+
+
+yyaxis("right");
+p = bar (date,tp(1,:)); %3
+ylim([0 100]);
+yline(tave,":",["Average temperatura" "(22.7℃)"]); %4
+title("Monthly distribution of temperature and rainfall in Zengcheng")
+ylabel("temperatura(mm)","color","k")
+xlabel("month")
+set(gca,'ycolor',[0.3 0.3 0.3])
+legend(["precipitation" "" "temperature" ""],Location="east",Box="off")
+
+
+figure(1)
+yyaxis left
+%  bar(num,duration,'EdgeColor',[0.75 0.75 0.75],'linewidth',1)
+% ylabel('Duration(month)')
+%  ax=gca;
+% ax.XLim=[0 742];
+% ax.YLim=[1 50];
+% set(gca,'yTick',[1,10,20,30,40,50]);
+% set(gca,'YTickLabel',{'1','10','20','30','40','50'})
+% set(gca,'ycolor',[0.3 0.3 0.3]);%改左边坐标轴颜色
+% hold on
+% 
+% yyaxis right
+% plot(num,duration2,'color',[153 0 2]/255,'linewidth',1.5)
+% hold on
+% set(gca,'ycolor',[153 0 2]/255);%改右边坐标轴颜色
+% pos=get(gcf,'position');
+% set(gcf,'position',pos)
+% set(gca,'xTick',[0,107,231,357,501,657,742]);
+% set(gca,'XTickLabel',{'1961','1970','1980','1990','2000','2010','2018'})
+% set(gca,'FontSize',18,'Fontname','Times New Roman')
+% ylabel('Duration(month)')
+%  ax=gca;
+% ax.XLim=[0 742];
+% ax.YLim=[1 15];
+% set(gca,'yTick',[1,5,10,15]);
+% set(gca,'YTickLabel',{'1','5','10','15'})
+% legend('SPEI mon','SPEI movingAvg','orientation','horizontal')%图例
+% legend boxoff;
+% 
+% set(gcf,'windowstyle','normal')
+% set(gca,'linewidth',1.5)
+% set(gcf,'position',pos)
+% print(gcf,'-r600','-dpng','G:***\**.png');
+% close
